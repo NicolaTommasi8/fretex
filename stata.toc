@@ -1,0 +1,3 @@
+v 1.0
+
+p fretex Comando per esportare l'output del comando fre in LaTex.
