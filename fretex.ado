@@ -10,9 +10,9 @@ version 14
 
 syntax varlist(max=1) [if] [in] [, NOMISsing AScending DEscending NOLabel NOValue all ///
                                    Format(integer 2) includelabeled include(str asis) /*options for fre*/  ///
-                                   texfile(str) replace caption(str) label(str) intc1(str) note(str) bold ///
+                                   texfile(str) caption(str) label(str) intc1(str) note(str) bold ///
                                    fullpage fixc1 position(str) fontsize(string) /*options for latex*/ ///
-                             ]
+                                ]
 
 
 **macro list
@@ -83,8 +83,8 @@ vec_pct_missing = (vec_missing :/ tot_fin) :*100
 vec_valid_percent = (vec_valid :/ tot_valid) :*100
 vec_cumul_percent = runningsum(vec_valid_percent)
 
- vec_T_valid = colsum(vec_valid)
- vec_T_percent = colsum(vec_tot_percent)
+vec_T_valid = colsum(vec_valid)
+vec_T_percent = colsum(vec_tot_percent)
 
 if ("`nomissing'" == "") {
   vec_T_valid = colsum(vec_valid) \ vec_missing \ colsum(vec_valid) :+ colsum(vec_missing)
@@ -119,9 +119,7 @@ local table_ncols = strlen("`def_cols'")
 local nrows_valid = rowsof(vec_valid)
 local nrows_missing = rowsof(vec_missing)
 
-if "`texfile'" != "" {
-  qui file open texfile using "`texfile'", write replace
-}
+if "`texfile'" != "" qui file open texfile using "`texfile'", write replace
 
 file write texfile "\begin{center}" _n
 file write texfile "\begin{table}[`position']" _n

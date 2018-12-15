@@ -46,8 +46,6 @@ Per funzionare correttamente nel preambolo del documento LaTex devono essere spe
 
 {p 4 8 2}{cmd:texfile(filename)}: specifica il file .tex (ed eventuale percorso) in cui salvare il codice della tabella. Questa opzione è obbligatoria.
 
-{p 4 8 2}{cmd:replace}: specifica di sovrascrivere il file indicato in {cmd:texfile(filename)}.
-
 {p 4 8 2}{cmd:caption(string)}: specifica il testo da inserire nell'opzione \caption{} del pacchetto table di LaTex. Di default è vuoto.
 
 {p 4 8 2}{cmd:label(string)}: specifica il testo da inserire nell'opzione \label{} del pacchetto table di LaTex. Il comando prevede il prefisso tbl: per cui l'opzione {cmd:label(Tab1)} produce il codice Latex \label{tbl:Tab1}.
@@ -76,16 +74,16 @@ Si veda la documentazione di LaTex per maggiori informazioni.
 {cmd:.} {stata sysuse auto, clear}
 
 {pstd}
-{cmd:.} {stata fretex foreign, texfile(ex1.tex) replace}
+{cmd:.} {stata fretex foreign, texfile(ex1.tex)}
 
 {pstd}
-{cmd:.} {stata fretex rep78, texfile(ex2.tex) replace}
+{cmd:.} {stata fretex rep78, texfile(ex2.tex)}
 
 {pstd}
-{cmd:.} {stata fretex foreign, includelabeled texfile(ex3.tex) replace}
+{cmd:.} {stata fretex foreign, includelabeled texfile(ex3.tex)}
 
 {pstd}
-{cmd:.} {stata fretex rep78, include(1/7 .a .b .c) texfile(ex4.tex) replace}
+{cmd:.} {stata fretex rep78, include(1/7 .a .b .c) texfile(ex4.tex)}
 
 
 
